@@ -128,7 +128,7 @@ function updatePage() {
         header.classList.toggle('disable')
         displayLoading.style.display = 'flex'
         setTimeout(() => {
-            location.href = 'game.html'
+            location.href = '/'
             // displayLoading.style.display = 'none'
         }, 3000)
         
@@ -144,7 +144,7 @@ function gameOver() {
     header.classList.toggle('disable')
         displayLoading.style.display = 'flex'
         setTimeout(() => {
-            location.href = 'game.html'
+            location.href = '/'
             // displayLoading.style.display = 'none'
         }, 3000)
 }
