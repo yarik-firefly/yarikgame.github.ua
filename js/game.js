@@ -4,7 +4,7 @@ const check = document.querySelector('.check')
 
 let startResult = check.innerHTML;
 
-const audioOne = new Audio('/audio/audio_click.mp3')
+const audioOne = new Audio('audio/audio_click.mp3')
 
 const audioLoad = new Audio('audio/audio_load.mp3')
 
