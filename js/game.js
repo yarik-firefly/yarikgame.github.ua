@@ -221,8 +221,8 @@ addAudio(optionThree)
 console.log(randomNumber);
 
 const listBtn = btn.addEventListener('click', () => {
-    // Звук клика
-    audioOne.play()
+//     Звук клика
+//     audioOne.play()
 
     if(valueInput.value == randomNumber) {
         // Показываем Верно над квадратом
