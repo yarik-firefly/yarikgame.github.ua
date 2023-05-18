@@ -1,1 +1,1 @@
-# yarikgame.github.io
+# yarikgame.github.ua
