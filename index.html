@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/game.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Game</title>
+  </head>
+  <body>
+    <header class="disable">
+      <div class="main-block">
+        <div class="first-row">
+          <button class="button">Снова</button>
+          <div class="number-between">Число между 1 и 20</div>
+        </div>
+        <div class="second-row">
+          <div class="name-title">Угадай число</div>
+          <div class="block-with-secret-number"><span>?</span></div>
+        </div>
+        <div class="third-row">
+          <div class="left-block">
+            <div class="text">Начните угадывать...</div>
+            <div class="area-enter">
+              <input type="number" value="" placeholder="0" />
+            </div>
+            <p class="pop-up-window"></p>
+            <div class="btn-two">
+              <button class="press-btn">Проверка</button>
+            </div>
+          </div>
+
+          <div class="info-game">
+            <p>Попыток осталось: <span class="check"></span></p>
+            <p>Рекорд: <span class="record"></span></p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <other-animation>
+      <header class="wrapper">
+        <div class="blue ball"></div>
+        <div class="red ball"></div>
+        <div class="yellow ball"></div>
+        <div class="green ball"></div>
+      </header>
+
+      <div class="disp">
+        <header class="active-display">
+          <div>
+            <div class="menu">
+              <div class="text-menu">
+                <div class="welcome">Добро Пожаловать</div>
+              </div>
+
+              <div class="choose-option">Выбери уровень сложности</div>
+
+              <div class="all-options">
+                <div class="option one">Light</div>
+                <div class="option two">Middle</div>
+                <div class="option three">Hard</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <footer>
+          <div class="reserved"><span>©</span> Все права защищены</div>
+        </footer>
+      </div>
+    </other-animation>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>
