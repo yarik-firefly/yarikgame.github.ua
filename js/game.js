@@ -4,7 +4,7 @@ const check = document.querySelector('.check')
 
 let startResult = check.innerHTML;
 
-const audioOne = new Audio('audio/audio_click.mp3')
+let audioOne = new Audio('audio/audio_click.mp3')
 
 const audioLoad = new Audio('audio/audio_load.mp3')
 
@@ -222,7 +222,7 @@ console.log(randomNumber);
 
 const listBtn = btn.addEventListener('click', () => {
     // Звук клика
-    audioOne.play()
+    let audioOne.play()
 
     if(valueInput.value == randomNumber) {
         // Показываем Верно над квадратом
