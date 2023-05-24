@@ -1,0 +1,114 @@
+/* *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* body {
+    margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(41, 41, 41);
+  } */
+  
+  /* .progressbar {
+      max-width: 450px;
+      display: block;
+      font-size: 10px;
+      --color: rgb(0, 186, 16);
+      --percent: 0;
+      --r: 30;
+      --PI: 3.14;
+      --lengthCircle: calc(2 * var(--PI) * var(--r));
+      --opacityThumb: 0;
+  }
+  
+  .progressbar circle {
+      r: var(--r);
+      stroke-width: 2;
+      fill: transparent;
+  }
+  
+  .progressbar__track {
+      stroke: #ededed;
+  }
+  
+  .progressbar__thumb {
+      stroke: var(--color);
+      stroke-dasharray: calc( var(--lengthCircle) * var(--percent) / 100 ) var(--lengthCircle);
+      stroke-linecap: round;
+      transform-origin: center;
+    transform-box: fill-box;
+      transform: rotate(-90deg);
+      opacity: var(--opacityThumb);
+  }
+  
+  .progressbar text {
+    fill: var(--color);
+  }
+  
+  .progressbar__percent {
+    font-size: 1.6em;
+  }
+
+  .preload-anim {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:rgba(0, 0, 0, 0.34)
+  } */
+
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.text-preloader {
+    color: aliceblue;
+    margin-bottom: 25px;
+    font-size: 20px;
+    letter-spacing: 2px;
+
+}
+
+.loading-load {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items:center
+}
+
+.loading-load .line-box {
+    padding: 2px;
+    width: 40%;
+    height: 20px;
+    border: 2px solid #2196f3;
+    border-radius: 20px
+}
+
+.loading-load .line-box .line {
+    height: 20px;
+    border-radius: 20px;
+    background: rgb(67, 163, 7);
+    animation: loading 2s forwards cubic-bezier(0,0,0,0);
+    box-shadow: 0 0 10px rgb(67, 163, 7), 0 0 40px rgb(67, 163, 7), 0 0 80px rgb(67, 163, 7);
+
+}
+
+@keyframes loading {
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 100%;
+    }
+}
