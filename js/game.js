@@ -4,12 +4,14 @@ const check = document.querySelector(".check");
 
 let startResult = check.innerHTML;
 
+let newElem;
+
 const audioOne = new Audio("audio/audio_click.mp3");
 
 const audioLoad = new Audio("audio/audio_load.mp3");
 
-const audioWin = new Audio("audio/audio_win.mp3");
-audioWin.volume = 0.1;
+const audioWin = new Audio("audio/audio_victory.mp3");
+audioWin.volume = 0.5;
 
 const audioLose = new Audio("audio/audio_lose.mp3");
 
@@ -55,52 +57,70 @@ const areaEnter = document.querySelector(".area-enter");
 
 const popUpWindow = document.querySelector(".pop-up-window");
 
+const squareOptionOne = document.querySelector(".option.one");
+const squareOptionTwo = document.querySelector(".option.two");
+const squareOptionThree = document.querySelector(".option.three");
 
+const dropDownMenuOne = document.querySelector(".ddm.one");
+const dropDownMenuTwo = document.querySelector(".ddm.two");
+const dropDownMenuThree = document.querySelector(".ddm.three");
 
-
-const squareOptionOne = document.querySelector('.option.one')
-const squareOptionTwo = document.querySelector('.option.two')
-const squareOptionThree = document.querySelector('.option.three')
-
-const dropDownMenuOne = document.querySelector('.ddm.one')
-const dropDownMenuTwo = document.querySelector('.ddm.two')
-const dropDownMenuThree = document.querySelector('.ddm.three')
-
+const colorFillingGreen = document.querySelector(".level.L");
+const colorFillingYellow = document.querySelector('.level.M')
+const colorFillingRed = document.querySelector('.level.H')
 
 // Передаём параметры в функцию
-DropDown(squareOptionOne, dropDownMenuOne)
-DropDown(squareOptionTwo, dropDownMenuTwo)
-DropDown(squareOptionThree, dropDownMenuThree)
+DropDown(squareOptionOne, dropDownMenuOne);
+DropDown(squareOptionTwo, dropDownMenuTwo);
+DropDown(squareOptionThree, dropDownMenuThree);
 
 
-// squareOptionOne.addEventListener('mouseover', () => {
-//     dropDownMenuOne.classList.add('down')
-//     squareOptionOne.addEventListener('mouseout', () => {
-//         dropDownMenuOne.classList.remove('down')
-//     })
-// })
+// Добавляет классы, котоыре выкатывают полоску сложности под большим квадратом сложности
+function addColor(elemOne, elemTwo, elemThree) {
+
+  elemOne.classList.add('animGreen')
+  elemTwo.classList.add('animYellow')
+  elemThree.classList.add('animRed')
+}
+
+// Удаляет эти же классы
+function removeColor(elemOne, elemTwo, elemThree) {
+  elemOne.classList.remove('animGreen')
+  elemTwo.classList.remove('animYellow')
+  elemThree.classList.remove('animRed')
+}
 
 
-// Разрешает заадчу с выдвижной панелью из квадратика
-function DropDown(elemOne, elemTwo) {elemOne.addEventListener('mouseover', () => {
-    elemTwo.classList.add('down')
-    elemOne.addEventListener('mouseout', () => {
-        elemTwo.classList.remove('down')
-    })
-})}
 
 
 
+// Разрешает задачу с выдвижной панелью из квадратика
+function DropDown(elemOne, elemTwo) {
+  elemOne.addEventListener("mouseover", () => {
+    elemTwo.classList.add("down");
+    
+    // Передаём в функцию к каким классам надо добавлять анимацию
+    addColor(colorFillingGreen, colorFillingYellow, colorFillingRed)
+    elemOne.addEventListener("mouseout", () => {
+      elemTwo.classList.remove("down");
 
-let newElem;
+      // Передаём теже параметры что бы удалить эти
+      removeColor(colorFillingGreen, colorFillingYellow, colorFillingRed)
+    });
+  });
+}
+
+
 
 // При нажатии на уровень ЛЁГКИЙ скрывает панель меню
 function chooseLight() {
   // Функция, которая присваивает класы невидимости, и запукает анимацию загрузки
   updateToNext();
+  
   firstDispActive.classList.toggle("disable");
   secondDispDisable.classList.toggle("disable");
   check.innerHTML = 12;
+
 }
 
 function chooseMiddle() {
@@ -118,12 +138,14 @@ function chooseHard() {
 }
 
 function addTextAfterInput() {
-  popUpWindow.innerHTML = "Введите число";
+  numberMistake.classList.add('pop-up-window')
+  numberMistake.innerHTML = "Enter The Number";
+
 }
 
-function deleteNewTextAfterInput() {
-  popUpWindow.innerHTML = "";
-}
+// function deleteNewTextAfterInput() {
+//   popUpWindow.innerHTML = "";
+// }
 
 function transfornToNumber(value) {
   return Number(value);
@@ -137,33 +159,35 @@ function updatePage() {
     displayLoading.style.display = "flex";
     setTimeout(() => {
       location.href = "index.html";
-    }, 3000);
+    }, 2050);
   });
 }
 
 function gameOver() {
   header.classList.toggle("disable");
   displayLoading.style.display = "flex";
+  // onUpdateGsap()
   setTimeout(() => {
     location.href = "game.html";
     // displayLoading.style.display = 'none'
-  }, 3000);
+  }, 2050);
 }
 
 function updateToNext() {
   header.classList.toggle("disable");
   displayLoading.style.display = "flex";
+  // onUpdateGsap()
   setTimeout(() => {
     header.classList.remove("disable");
     displayLoading.style.display = "none";
-  }, 1500);
+  }, 2050);
   audioLoad.play();
 }
 
 // Добавляет звук при наведении на квадрат со сложностью игры
 function addAudio(elem) {
   const audioHover = elem.addEventListener("mouseover", () => {
-    let audio = new Audio("audio/two_click.mp3");
+    let audio = new Audio("audio/audio_neon.mp3");
     audio.play();
   });
 
@@ -188,7 +212,7 @@ const listBtn = btn.addEventListener("click", () => {
 
   if (valueInput.value == randomNumber) {
     // Показываем Верно над квадратом
-    showInscription.innerHTML = "Верно!";
+    showInscription.innerHTML = "Right!";
 
     // Показываем верное число вместо знака вопроса
     trueNumber.innerHTML = valueInput.value;
@@ -222,7 +246,8 @@ const listBtn = btn.addEventListener("click", () => {
     valueInput.value = 0;
 
     // Меняем название над блоком инпут
-    numberMistake.innerHTML = "Число должно<br>быть положительное!";
+    numberMistake.innerHTML = "Number must be positive!";
+    numberMistake.classList.remove('pop-up-window')
 
     //Меняем число в поле РЕКОРД
     record.innerHTML;
@@ -231,7 +256,7 @@ const listBtn = btn.addEventListener("click", () => {
     check.innerHTML = check.innerHTML - 1;
 
     // Функция, убирающая текст под полем инпут, если у нас присутствует какое-то число в инпуте
-    deleteNewTextAfterInput();
+    // deleteNewTextAfterInput();
 
     // Если кол-во попыток стает 0 - вызываем функцию
     if (check.innerHTML < 1) {
@@ -246,13 +271,14 @@ const listBtn = btn.addEventListener("click", () => {
     valueInput.value = 0;
 
     // Меняем название над блоком инпут
-    numberMistake.innerHTML = "Больше";
+    numberMistake.innerHTML = "More";
+    numberMistake.classList.remove('pop-up-window')
 
     //Меняем сам параметр, что визуально изменился
     check.innerHTML = check.innerHTML - 1;
 
     // Функция, убирающая текст под полем инпут, если у нас присутствует какое-то число в инпуте
-    deleteNewTextAfterInput();
+    // deleteNewTextAfterInput();
 
     // Если кол-во попыток стает 0 - вызываем функцию
     if (check.innerHTML < 1) {
@@ -268,13 +294,14 @@ const listBtn = btn.addEventListener("click", () => {
     valueInput.value = 0;
 
     // Меняем название над блоком инпут
-    numberMistake.innerHTML = "Меньше";
+    numberMistake.innerHTML = "Less";
+    numberMistake.classList.remove('pop-up-window')
 
     //Меняем сам параметр, что визуально изменился
     check.innerHTML = check.innerHTML - 1;
 
     // Функция, убирающая текст под полем инпут, если у нас присутствует какое-то число в инпуте
-    deleteNewTextAfterInput();
+    // deleteNewTextAfterInput();
 
     // Если кол-во попыток стает 0 - вызываем функцию
     if (check.innerHTML < 1) {
@@ -289,6 +316,39 @@ const listBtn = btn.addEventListener("click", () => {
 });
 
 updatePage();
+
+
+// Не мой код, из видео
+// const percentNode = document.querySelector('.progressbar__percent tspan');
+// const infoNode = document.querySelector('.progressbar__info tspan');
+// const svgNode = document.querySelector('.progressbar');
+
+// function onUpdateGsap() {
+
+// 	const percent = gsap.getProperty(svgNode, '--percent');
+
+	
+
+//   percentNode.textContent = Math.round(percent);
+  
+  
+//   const tl = gsap.timeline()
+//   .to(svgNode, { '--opacityThumb': 1, duration: 0.2 })
+//   .to(svgNode, { '--percent': 100, duration:0.5, ease: 'linear', onUpdateGsap})
+  
+  
+
+  
+// }
+
+
+
+
+// function fillCircle() {
+  
+// }
+
+
 
 // if(valueInput.value == randomNumber) {
 //     showInscription.innerHTML = 'Верно!'
