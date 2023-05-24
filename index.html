@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/game.css" />
     <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/preloader.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,50 +19,70 @@
     <header class="disable">
       <div class="main-block">
         <div class="first-row">
-          <button class="button">Снова</button>
-          <div class="number-between">Число между 1 и 20</div>
+          <button class="button">Back</button>
+          <div class="number-between">Number between 1 and 20</div>
         </div>
         <div class="second-row">
-          <div class="name-title">Угадай число</div>
+          <div class="name-title">Guess The Number</div>
           <div class="block-with-secret-number"><span>?</span></div>
         </div>
         <div class="third-row">
           <div class="left-block">
-            <div class="text">Начните угадывать...</div>
+            <div class="text">Start guessing...</div>
             <div class="area-enter">
               <input type="number" value="" placeholder="0" />
             </div>
-            <p class="pop-up-window"></p>
+
             <div class="btn-two">
-              <button class="press-btn">Проверка</button>
+              <button class="press-btn">Check</button>
             </div>
           </div>
 
           <div class="info-game">
-            <p>Попыток осталось: <span class="check"></span></p>
-            <p>Рекорд: <span class="record"></span></p>
+            <p>Tries Left: <span class="check"></span></p>
+            <p>Record: <span class="record"></span></p>
           </div>
         </div>
       </div>
     </header>
 
     <other-animation>
+      <!-- <div class="wrapper">
+        <svg class="progressbar" viewBox="0 0 62 80">
+          <circle class="progressbar__track" cx="31" cy="31"></circle>
+          <circle class="progressbar__thumb" cx="31" cy="31"></circle>
+          <text x="32" y="33" class="progressbar__percent" text-anchor="middle" dominant-baseline="middle"><tspan>0</tspan>%</text>
+          <text x="32" y="73" class="progressbar__info" text-anchor="middle" dominant-baseline="middle"><tspan>Loading</tspan></text>
+        </svg>
+      </div> -->
       <header class="wrapper">
+        <div class="text-preloader">
+          <h1>Loading</h1>
+        </div>
+        <div class="loading-load">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Анимация из GOOGLE -->
+      <!-- <header class="wrapper">
         <div class="blue ball"></div>
         <div class="red ball"></div>
         <div class="yellow ball"></div>
         <div class="green ball"></div>
-      </header>
+      </header> -->
 
       <div class="disp">
         <header class="active-display">
           <div>
             <div class="menu">
               <div class="text-menu">
-                <div class="welcome">Добро Пожаловать</div>
+                <div class="welcome">Welcome</div>
               </div>
 
-              <div class="choose-option">Выбери уровень сложности</div>
+              <div class="choose-option">Choose Difficulty</div>
 
               <div class="all-options">
                 <div class="drop-down-menu">
@@ -75,8 +96,8 @@
                   <div class="ddm one">
                     <div class="loading one">
                       <span class="level L">L</span>
-                      <span class="level">M</span>
-                      <span class="level">H</span>
+                      <span class="level"></span>
+                      <span class="level"></span>
                     </div>
                     <div class="templates">12 attempts</div>
                   </div>
@@ -126,6 +147,8 @@
       </div>
     </other-animation>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="js/game.js"></script>
+    
   </body>
 </html>
