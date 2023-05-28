@@ -58,6 +58,17 @@ DropDownMobile(squareOptionOne, dropDownMenuOne);
 DropDownMobile(squareOptionTwo, dropDownMenuTwo);
 DropDownMobile(squareOptionThree, dropDownMenuThree);
 
+function addAudioMobile(elem) {
+  elem.addEventListener("touchend", () => {
+    let audio = new Audio("audio/audio_neon.mp3");
+    audio.play();
+  });
+}
+
+addAudioMobile(optionOne)
+addAudioMobile(optionTwo)
+addAudioMobile(optionThree)
+
 // То же для мобильных устройств
 function DropDownMobile(elemOne, elemTwo) {
   elemOne.addEventListener("touchend", () => {
