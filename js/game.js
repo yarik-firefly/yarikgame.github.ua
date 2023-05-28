@@ -24,12 +24,13 @@ let optionThree = document.querySelector(".three");
 const firstDispActive = document.querySelector(".disable");
 const secondDispDisable = document.querySelector(".disp");
 
-const pressOneBtn = optionOne.addEventListener("click", chooseLight);
+// let desktop = window.matchMedia("(max-width:)")
+// const pressOneBtn = optionOne.addEventListener("click", chooseLight);
 
-const pressTwoBtn = optionTwo.addEventListener("click", chooseMiddle);
-const pressThreeBtn = optionThree.addEventListener("click", chooseHard);
+// const pressTwoBtn = optionTwo.addEventListener("click", chooseMiddle);
+// const pressThreeBtn = optionThree.addEventListener("click", chooseHard);
 
-const numberBetween = document.querySelector(".number-between");
+// const numberBetween = document.querySelector(".number-between");
 
 // РАЗДЕЛ ИГРЫ
 
@@ -112,6 +113,9 @@ function DropDown(elemOne, elemTwo) {
 
 
 
+
+
+
 // При нажатии на уровень ЛЁГКИЙ скрывает панель меню
 function chooseLight() {
   // Функция, которая присваивает класы невидимости, и запукает анимацию загрузки
@@ -168,7 +172,7 @@ function gameOver() {
   displayLoading.style.display = "flex";
   // onUpdateGsap()
   setTimeout(() => {
-    location.href = "game.html";
+    location.href = "index.html";
     // displayLoading.style.display = 'none'
   }, 2050);
 }
