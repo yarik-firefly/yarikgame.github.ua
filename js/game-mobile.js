@@ -4,6 +4,12 @@ const buttonMobile = document.querySelectorAll(".mobile-btn");
 // Медиа запрос когда макс. ширина 1000px
 let tablet = window.matchMedia("(max-width:1000px)");
 
+const body = document.querySelector('body').addEventListener('touchend', () => {
+  dropDownMenuOne.classList.remove("down");
+  dropDownMenuTwo.classList.remove("down");
+  dropDownMenuThree.classList.remove("down");
+})
+
 // В коде сделано два таких условия. Это для того,что бы изначально у нас при подгрузке страницы сразу же или
 // убиралась или добавлялась прослушка событий
 if (tablet.matches === true) {
