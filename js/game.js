@@ -214,7 +214,7 @@ const listBtn = btn.addEventListener("click", () => {
   // Звук клика
   audioOne.play();
 
-  if (valueInput.value === randomNumber) {
+  if (valueInput.value === String(randomNumber)) {
     // Показываем Верно над квадратом
     showInscription.innerHTML = "Right!";
 
